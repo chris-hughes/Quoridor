@@ -1,3 +1,39 @@
-body { padding: 60px; }
+body { 
+	padding: 60px;
+	margin: 0 auto;
+}
 
 h1 { color: red; }
+
+.wall { background-color: lightblue; }
+
+.grid { background-color: lightyellow; }
+
+.board{
+	padding-left: 260px;
+	font-size:150%;
+	font-family:sans-serif;
+}
+.myrow div{
+	width:2em;
+	height:2em;
+	line-height:2em;
+	text-align:center;
+	background-color:#aaa;
+	border:1px solid #ccc;
+	float:left;
+}
+.myrow{
+	clear:left;
+}
+.myrow div.blank{
+	background-color:#f5f5f5;
+	border:1px solid #f5f5f5;
+}
+.myrow div.target{
+	background-color:#000000;
+}
+.myrow div.selected{
+	background-color:#ffff00;
+	border:1px solid #ccc;
+}
