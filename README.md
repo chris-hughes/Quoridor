@@ -1,0 +1,1 @@
+Quick and dirrty implementation of Quoridor!
