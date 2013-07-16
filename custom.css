@@ -57,3 +57,10 @@ h1 { color: red; }
 	background-color:#ffff00;
 	border:1px solid #ccc;
 }
+
+.bluepiece {
+	background-color: lightblue;
+}
+.yellowpiece {
+	background-color: lightyellow;
+}
