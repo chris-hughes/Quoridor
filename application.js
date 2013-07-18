@@ -21,7 +21,7 @@ $(document).ready(function() {
 	};
 
 	// initialise pieces
-	var white = new Piece(16,8,'white');
+	var white = new Piece(2,8,'white');
 	var black = new Piece(0,8,'black');
 
 	// create array of pieces
@@ -71,9 +71,122 @@ $(document).ready(function() {
 
 	}
 
-
-	// render the initial board - this is noe done through socket.io
+	// render the initial board
 	render();
+
+
+	// function to check if a piece was jumped
+	function jumped(startx,starty,newx,newy,piece){
+		if (Math.abs(newx-startx)===1 || Math.abs(newy-starty)===1){
+				return -1;
+		}
+
+		// jumping south
+		else if (newx-startx===2 && newy-starty===0){
+			var jumpPiece=-1;
+			for (i=0;i<pieces.length;i++){
+				if (pieces[i].x===(startx+1) && pieces[i].y===starty) {
+					jumpPiece=i;
+				}
+			}
+			return jumpPiece;	
+		}
+
+		// jumping west
+		else if (newx-startx===0 && newy-starty===-2){
+			var jumpPiece=-1;
+			for (i=0;i<pieces.length;i++){
+				if (pieces[i].x===(startx) && pieces[i].y===(starty-1)) {
+					jumpPiece=i;
+				}
+			}
+			return jumpPiece;
+		}
+
+		// jumping north
+		else if (newx-startx===-2 && newy-starty===0){
+			var jumpPiece=-1;
+			for (i=0;i<pieces.length;i++){
+				if (pieces[i].x===(startx-1) && pieces[i].y===(starty)) {
+					jumpPiece=i;
+				}
+			}
+			return jumpPiece;
+		}
+
+		// jumping east
+		else if (newx-startx===0 && newy-starty===2){
+			var jumpPiece=-1;
+			for (i=0;i<pieces.length;i++){
+				if (pieces[i].x===(startx) && pieces[i].y===(starty+1)) {
+					jumpPiece=i;
+				}
+			}
+			return jumpPiece;
+		}
+
+	}
+
+	// function to check move is legal
+	function legalMove(startx,starty,newx,newy,piece,movePiece){
+		// check if they're trying to move off the board
+		if (newx<0 || newx>16 || newy<0 || newy>16){
+			render();
+			$('#log').text('Can not move piece off the board');
+			return false;
+		}
+
+		// check if they're trying to move too far or diagonally
+		if (Math.abs(newx-startx)>0 && Math.abs(newy-starty)>0){
+			render();
+			$('#log').text('You cannot move diagonally');
+			return false;
+		}
+		else if (Math.abs(newx-startx)>2 || Math.abs(newy-starty)>2) {
+			render();
+			$('#log').text('You can not move that far');
+			return false;
+		}
+
+
+		// check to see if it was a jump and if so what piece was jumped
+		// value of -1 means no jump was made
+		var jumpPiece = jumped(startx,starty,newx,newy,piece);
+
+		// if no jump then you can only move 1
+		if (jumpPiece==-1 && Math.abs(newx-startx)+Math.abs(newy-starty)>1){
+			render();
+			$('#log').text('You can not move that far');
+			return false;			
+		}
+
+		// if you've jumped you must move 2 (not coded as not necessary)
+
+		// else it's a legal move
+		else {
+			return true;
+		}
+
+	}
+
+	// check to see if someone has won
+	function win(movePiece){
+		var whiteDragonCount=0;
+		var blackDragonCount=0;
+		for (i=0;i<pieces.length;i++){
+			if (pieces[i].colour==='white' && pieces[i].x===0) {
+				$('#log').text('white wins!!! Sucks to be black');
+				gameOver=1;
+				return;
+			}
+			else if (pieces[i].colour==='black' && pieces[i].x===16) {
+				$('#log').text('black wins!!! Sucks to be white');
+				gameOver=2;
+				return;
+			}
+		}
+
+	}
 
 	// create global variables to contral the turns
 	var turn=0; 			// this is the turn number
@@ -81,6 +194,99 @@ $(document).ready(function() {
 	var lastMoveJump=0; 	// this will tell if the last move was a jump
 	var shingShang=0;		// this will tell if there's been a shing shang
 	var gameOver=0;
+
+	function move(startx,starty,newx,newy){
+
+		// check if the game is over
+		if (gameOver>0){
+			win();	// this is just an easier way of logging who has won
+			return;
+		}
+
+		// find the piece you are trying to move in the pieces array
+		var movePiece=-1;
+		for (i=0;i<pieces.length;i++){
+			if (pieces[i].x===startx && pieces[i].y===starty) {
+				movePiece=i;
+			}
+		}
+
+		if (movePiece<0){
+			render();
+			$('#log').text("No piece to move in starting cell");
+			return;
+		}
+		else if (turn % 2===0 && pieces[movePiece].colour==="black"){
+			movePiece=-1; // this will stop the turn from happening
+			render();
+			$('#log').text("it is White's turn");
+			return;
+		}
+		else if (turn % 2===1 && pieces[movePiece].colour==="white"){
+			$('#log').text("it is Black's turn");
+			render();
+			movePiece=-1; // this will stop the turn from happening
+			return;
+		}
+
+
+		// check to see if there is already a piece in the target cell
+		var allowMove=-1;
+		for (i=0;i<pieces.length;i++){
+			if (pieces[i].x===newx && pieces[i].y===newy) {
+				allowMove=i;
+			}
+		}
+		if (allowMove>-1){
+			render();
+			$('#log').text("Piece already in target cell");
+			return;
+		}
+
+		// move the piece if it's allowed
+		var allow=legalMove(startx,starty,newx,newy,pieces[movePiece],movePiece);
+		if (allow===false){
+			return;
+		}
+		if (movePiece>-1 && allowMove<0){
+			if (allow===true){
+				pieces[movePiece].x=newx;
+				pieces[movePiece].y=newy;
+			}
+			else if (allow>-1){
+				if (allow<movePiece){
+					pieces[movePiece-1].x=newx;
+					pieces[movePiece-1].y=newy;
+				}
+				else {
+					pieces[movePiece].x=newx;
+					pieces[movePiece].y=newy;	
+				}
+			}
+
+			// check for a winner
+			win();
+			if (gameOver>0){
+				$('#endturn').hide();
+				$('.piece').draggable("disable");
+				return;
+			}
+			else {
+				lastPiece=-1;
+				turn++;
+				$('#log').text(" ");
+				if (turn % 2===0){
+					$('#turn_icon').css('color','white').text("White's Turn");
+				} else {
+					$('#turn_icon').css('color','black').text("Black's Turn");
+				}
+			}
+
+			render();
+		}
+	}
+
+
 
 
 });
