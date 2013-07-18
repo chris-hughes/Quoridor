@@ -21,7 +21,7 @@ $(document).ready(function() {
 	};
 
 	// initialise pieces
-	var white = new Piece(2,8,'white');
+	var white = new Piece(16,8,'white');
 	var black = new Piece(0,8,'black');
 
 	// create array of pieces
@@ -77,15 +77,15 @@ $(document).ready(function() {
 
 	// function to check if a piece was jumped
 	function jumped(startx,starty,newx,newy,piece){
-		if (Math.abs(newx-startx)===1 || Math.abs(newy-starty)===1){
+		if (Math.abs(newx-startx)===2 || Math.abs(newy-starty)===2){
 				return -1;
 		}
 
 		// jumping south
-		else if (newx-startx===2 && newy-starty===0){
+		else if (newx-startx===4 && newy-starty===0){
 			var jumpPiece=-1;
 			for (i=0;i<pieces.length;i++){
-				if (pieces[i].x===(startx+1) && pieces[i].y===starty) {
+				if (pieces[i].x===(startx+2) && pieces[i].y===starty) {
 					jumpPiece=i;
 				}
 			}
@@ -93,10 +93,10 @@ $(document).ready(function() {
 		}
 
 		// jumping west
-		else if (newx-startx===0 && newy-starty===-2){
+		else if (newx-startx===0 && newy-starty===-4){
 			var jumpPiece=-1;
 			for (i=0;i<pieces.length;i++){
-				if (pieces[i].x===(startx) && pieces[i].y===(starty-1)) {
+				if (pieces[i].x===(startx) && pieces[i].y===(starty-2)) {
 					jumpPiece=i;
 				}
 			}
@@ -104,10 +104,10 @@ $(document).ready(function() {
 		}
 
 		// jumping north
-		else if (newx-startx===-2 && newy-starty===0){
+		else if (newx-startx===-4 && newy-starty===0){
 			var jumpPiece=-1;
 			for (i=0;i<pieces.length;i++){
-				if (pieces[i].x===(startx-1) && pieces[i].y===(starty)) {
+				if (pieces[i].x===(startx-2) && pieces[i].y===(starty)) {
 					jumpPiece=i;
 				}
 			}
@@ -115,10 +115,10 @@ $(document).ready(function() {
 		}
 
 		// jumping east
-		else if (newx-startx===0 && newy-starty===2){
+		else if (newx-startx===0 && newy-starty===4){
 			var jumpPiece=-1;
 			for (i=0;i<pieces.length;i++){
-				if (pieces[i].x===(startx) && pieces[i].y===(starty+1)) {
+				if (pieces[i].x===(startx) && pieces[i].y===(starty+2)) {
 					jumpPiece=i;
 				}
 			}
@@ -142,7 +142,7 @@ $(document).ready(function() {
 			$('#log').text('You cannot move diagonally');
 			return false;
 		}
-		else if (Math.abs(newx-startx)>2 || Math.abs(newy-starty)>2) {
+		else if (Math.abs(newx-startx)>4 || Math.abs(newy-starty)>4) {
 			render();
 			$('#log').text('You can not move that far');
 			return false;
@@ -154,7 +154,7 @@ $(document).ready(function() {
 		var jumpPiece = jumped(startx,starty,newx,newy,piece);
 
 		// if no jump then you can only move 1
-		if (jumpPiece==-1 && Math.abs(newx-startx)+Math.abs(newy-starty)>1){
+		if (jumpPiece==-1 && Math.abs(newx-startx)+Math.abs(newy-starty)>2){
 			render();
 			$('#log').text('You can not move that far');
 			return false;			
