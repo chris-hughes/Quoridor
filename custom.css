@@ -5,12 +5,12 @@ body {
 
 h1 { color: red; }
 
-.wall { background-color: lightblue; }
+/*.wall { background-color: lightblue; }
 
 .grid { background-color: lightyellow; }
-
+*/
 .board{
-	padding-left: 260px;
+	/*padding-left: 260px;*/
 	font-size:150%;
 	font-family:sans-serif;
 }
@@ -34,13 +34,13 @@ h1 { color: red; }
 
 .myrow div.vwall {
 	width: 0.1em;
-	background-color:#000000;
+	/*background-color:#000000;*/
 	border:1px solid #000000;
 }
 
 .myrow div.hwall {
 	height: 0.1em;
-	background-color:#000000;
+	/*background-color:#000000;*/
 	border:1px solid #000000;
 }
 
@@ -58,9 +58,8 @@ h1 { color: red; }
 	border:1px solid #ccc;
 }
 
-.bluepiece {
+#wallcontainer {
+	padding: 6px;
 	background-color: lightblue;
-}
-.yellowpiece {
-	background-color: lightyellow;
+	height: 100%;
 }

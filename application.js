@@ -175,12 +175,12 @@ $(document).ready(function() {
 		var blackDragonCount=0;
 		for (i=0;i<pieces.length;i++){
 			if (pieces[i].colour==='white' && pieces[i].x===0) {
-				$('#log').text('white wins!!! Sucks to be black');
+				$('#log').text('White wins!!! Sucks to be black');
 				gameOver=1;
 				return;
 			}
 			else if (pieces[i].colour==='black' && pieces[i].x===16) {
-				$('#log').text('black wins!!! Sucks to be white');
+				$('#log').text('Black wins!!! Sucks to be white');
 				gameOver=2;
 				return;
 			}
@@ -267,7 +267,7 @@ $(document).ready(function() {
 			// check for a winner
 			win();
 			if (gameOver>0){
-				$('#endturn').hide();
+				render();
 				$('.piece').draggable("disable");
 				return;
 			}
@@ -276,8 +276,10 @@ $(document).ready(function() {
 				turn++;
 				$('#log').text(" ");
 				if (turn % 2===0){
+					$('#log').text("White's Turn");
 					$('#turn_icon').css('color','white').text("White's Turn");
 				} else {
+					$('#log').text("Black's Turn");
 					$('#turn_icon').css('color','black').text("Black's Turn");
 				}
 			}

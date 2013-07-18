@@ -33,346 +33,365 @@
 				</div>
 			</div>
 		</div>
-		<div class="container">
+		
+		<div class='row-fluid'>
 			<h1>Quoridor</h1>
-			<div class='row span 12' id='log'></div>	
-			<div class="board">
+			<div class='row span12' id='log'>White's turn</div>
+		</div>
 
-				<div class="myrow">
-					<div></div>
-					<div class="vwall"></div>
-					<div></div>
-					<div class="vwall"></div>
-					<div></div>
-					<div class="vwall"></div>
-					<div></div>
-					<div class="vwall"></div>
-					<div></div>
-					<div class="vwall"></div>
-					<div></div>
-					<div class="vwall"></div>
-					<div></div>
-					<div class="vwall"></div>
-					<div></div>
-					<div class="vwall"></div>
-					<div></div>
-				</div>
+		<div class="container-fluid">
+			<div class='row-fluid'>
+				<div class='span5 offset2'>
+					<div class="board">
 
-				<div class="myrow">
-					<div class="hwall"></div>
-					<div class="hwallspacer"></div>
-					<div class="hwall"></div>
-					<div class="hwallspacer"></div>
-					<div class="hwall"></div>
-					<div class="hwallspacer"></div>
-					<div class="hwall"></div>
-					<div class="hwallspacer"></div>
-					<div class="hwall"></div>
-					<div class="hwallspacer"></div>
-					<div class="hwall"></div>
-					<div class="hwallspacer"></div>
-					<div class="hwall"></div>
-					<div class="hwallspacer"></div>
-					<div class="hwall"></div>
-					<div class="hwallspacer"></div>
-					<div class="hwall"></div>
-				</div>
-				<div class="myrow">
-					<div></div>
-					<div class="vwall"></div>
-					<div></div>
-					<div class="vwall"></div>
-					<div></div>
-					<div class="vwall"></div>
-					<div></div>
-					<div class="vwall"></div>
-					<div></div>
-					<div class="vwall"></div>
-					<div></div>
-					<div class="vwall"></div>
-					<div></div>
-					<div class="vwall"></div>
-					<div></div>
-					<div class="vwall"></div>
-					<div></div>
-				</div>
+						<div class="myrow">
+							<div></div>
+							<div class="vwall"></div>
+							<div></div>
+							<div class="vwall"></div>
+							<div></div>
+							<div class="vwall"></div>
+							<div></div>
+							<div class="vwall"></div>
+							<div></div>
+							<div class="vwall"></div>
+							<div></div>
+							<div class="vwall"></div>
+							<div></div>
+							<div class="vwall"></div>
+							<div></div>
+							<div class="vwall"></div>
+							<div></div>
+						</div>
 
-				<div class="myrow">
-					<div class="hwall"></div>
-					<div class="hwallspacer"></div>
-					<div class="hwall"></div>
-					<div class="hwallspacer"></div>
-					<div class="hwall"></div>
-					<div class="hwallspacer"></div>
-					<div class="hwall"></div>
-					<div class="hwallspacer"></div>
-					<div class="hwall"></div>
-					<div class="hwallspacer"></div>
-					<div class="hwall"></div>
-					<div class="hwallspacer"></div>
-					<div class="hwall"></div>
-					<div class="hwallspacer"></div>
-					<div class="hwall"></div>
-					<div class="hwallspacer"></div>
-					<div class="hwall"></div>
-				</div>
-				<div class="myrow">
-					<div></div>
-					<div class="vwall"></div>
-					<div></div>
-					<div class="vwall"></div>
-					<div></div>
-					<div class="vwall"></div>
-					<div></div>
-					<div class="vwall"></div>
-					<div></div>
-					<div class="vwall"></div>
-					<div></div>
-					<div class="vwall"></div>
-					<div></div>
-					<div class="vwall"></div>
-					<div></div>
-					<div class="vwall"></div>
-					<div></div>
-				</div>
+						<div class="myrow">
+							<div class="hwall"></div>
+							<div class="hwallspacer"></div>
+							<div class="hwall"></div>
+							<div class="hwallspacer"></div>
+							<div class="hwall"></div>
+							<div class="hwallspacer"></div>
+							<div class="hwall"></div>
+							<div class="hwallspacer"></div>
+							<div class="hwall"></div>
+							<div class="hwallspacer"></div>
+							<div class="hwall"></div>
+							<div class="hwallspacer"></div>
+							<div class="hwall"></div>
+							<div class="hwallspacer"></div>
+							<div class="hwall"></div>
+							<div class="hwallspacer"></div>
+							<div class="hwall"></div>
+						</div>
+						<div class="myrow">
+							<div></div>
+							<div class="vwall"></div>
+							<div></div>
+							<div class="vwall"></div>
+							<div></div>
+							<div class="vwall"></div>
+							<div></div>
+							<div class="vwall"></div>
+							<div></div>
+							<div class="vwall"></div>
+							<div></div>
+							<div class="vwall"></div>
+							<div></div>
+							<div class="vwall"></div>
+							<div></div>
+							<div class="vwall"></div>
+							<div></div>
+						</div>
 
-				<div class="myrow">
-					<div class="hwall"></div>
-					<div class="hwallspacer"></div>
-					<div class="hwall"></div>
-					<div class="hwallspacer"></div>
-					<div class="hwall"></div>
-					<div class="hwallspacer"></div>
-					<div class="hwall"></div>
-					<div class="hwallspacer"></div>
-					<div class="hwall"></div>
-					<div class="hwallspacer"></div>
-					<div class="hwall"></div>
-					<div class="hwallspacer"></div>
-					<div class="hwall"></div>
-					<div class="hwallspacer"></div>
-					<div class="hwall"></div>
-					<div class="hwallspacer"></div>
-					<div class="hwall"></div>
-				</div>
-				<div class="myrow">
-					<div></div>
-					<div class="vwall"></div>
-					<div></div>
-					<div class="vwall"></div>
-					<div></div>
-					<div class="vwall"></div>
-					<div></div>
-					<div class="vwall"></div>
-					<div></div>
-					<div class="vwall"></div>
-					<div></div>
-					<div class="vwall"></div>
-					<div></div>
-					<div class="vwall"></div>
-					<div></div>
-					<div class="vwall"></div>
-					<div></div>
-				</div>
+						<div class="myrow">
+							<div class="hwall"></div>
+							<div class="hwallspacer"></div>
+							<div class="hwall"></div>
+							<div class="hwallspacer"></div>
+							<div class="hwall"></div>
+							<div class="hwallspacer"></div>
+							<div class="hwall"></div>
+							<div class="hwallspacer"></div>
+							<div class="hwall"></div>
+							<div class="hwallspacer"></div>
+							<div class="hwall"></div>
+							<div class="hwallspacer"></div>
+							<div class="hwall"></div>
+							<div class="hwallspacer"></div>
+							<div class="hwall"></div>
+							<div class="hwallspacer"></div>
+							<div class="hwall"></div>
+						</div>
+						<div class="myrow">
+							<div></div>
+							<div class="vwall"></div>
+							<div></div>
+							<div class="vwall"></div>
+							<div></div>
+							<div class="vwall"></div>
+							<div></div>
+							<div class="vwall"></div>
+							<div></div>
+							<div class="vwall"></div>
+							<div></div>
+							<div class="vwall"></div>
+							<div></div>
+							<div class="vwall"></div>
+							<div></div>
+							<div class="vwall"></div>
+							<div></div>
+						</div>
 
-				<div class="myrow">
-					<div class="hwall"></div>
-					<div class="hwallspacer"></div>
-					<div class="hwall"></div>
-					<div class="hwallspacer"></div>
-					<div class="hwall"></div>
-					<div class="hwallspacer"></div>
-					<div class="hwall"></div>
-					<div class="hwallspacer"></div>
-					<div class="hwall"></div>
-					<div class="hwallspacer"></div>
-					<div class="hwall"></div>
-					<div class="hwallspacer"></div>
-					<div class="hwall"></div>
-					<div class="hwallspacer"></div>
-					<div class="hwall"></div>
-					<div class="hwallspacer"></div>
-					<div class="hwall"></div>
-				</div>
-				<div class="myrow">
-					<div></div>
-					<div class="vwall"></div>
-					<div></div>
-					<div class="vwall"></div>
-					<div></div>
-					<div class="vwall"></div>
-					<div></div>
-					<div class="vwall"></div>
-					<div></div>
-					<div class="vwall"></div>
-					<div></div>
-					<div class="vwall"></div>
-					<div></div>
-					<div class="vwall"></div>
-					<div></div>
-					<div class="vwall"></div>
-					<div></div>
-				</div>
+						<div class="myrow">
+							<div class="hwall"></div>
+							<div class="hwallspacer"></div>
+							<div class="hwall"></div>
+							<div class="hwallspacer"></div>
+							<div class="hwall"></div>
+							<div class="hwallspacer"></div>
+							<div class="hwall"></div>
+							<div class="hwallspacer"></div>
+							<div class="hwall"></div>
+							<div class="hwallspacer"></div>
+							<div class="hwall"></div>
+							<div class="hwallspacer"></div>
+							<div class="hwall"></div>
+							<div class="hwallspacer"></div>
+							<div class="hwall"></div>
+							<div class="hwallspacer"></div>
+							<div class="hwall"></div>
+						</div>
+						<div class="myrow">
+							<div></div>
+							<div class="vwall"></div>
+							<div></div>
+							<div class="vwall"></div>
+							<div></div>
+							<div class="vwall"></div>
+							<div></div>
+							<div class="vwall"></div>
+							<div></div>
+							<div class="vwall"></div>
+							<div></div>
+							<div class="vwall"></div>
+							<div></div>
+							<div class="vwall"></div>
+							<div></div>
+							<div class="vwall"></div>
+							<div></div>
+						</div>
 
-				<div class="myrow">
-					<div class="hwall"></div>
-					<div class="hwallspacer"></div>
-					<div class="hwall"></div>
-					<div class="hwallspacer"></div>
-					<div class="hwall"></div>
-					<div class="hwallspacer"></div>
-					<div class="hwall"></div>
-					<div class="hwallspacer"></div>
-					<div class="hwall"></div>
-					<div class="hwallspacer"></div>
-					<div class="hwall"></div>
-					<div class="hwallspacer"></div>
-					<div class="hwall"></div>
-					<div class="hwallspacer"></div>
-					<div class="hwall"></div>
-					<div class="hwallspacer"></div>
-					<div class="hwall"></div>
-				</div>
-				<div class="myrow">
-					<div></div>
-					<div class="vwall"></div>
-					<div></div>
-					<div class="vwall"></div>
-					<div></div>
-					<div class="vwall"></div>
-					<div></div>
-					<div class="vwall"></div>
-					<div></div>
-					<div class="vwall"></div>
-					<div></div>
-					<div class="vwall"></div>
-					<div></div>
-					<div class="vwall"></div>
-					<div></div>
-					<div class="vwall"></div>
-					<div></div>
-				</div>
+						<div class="myrow">
+							<div class="hwall"></div>
+							<div class="hwallspacer"></div>
+							<div class="hwall"></div>
+							<div class="hwallspacer"></div>
+							<div class="hwall"></div>
+							<div class="hwallspacer"></div>
+							<div class="hwall"></div>
+							<div class="hwallspacer"></div>
+							<div class="hwall"></div>
+							<div class="hwallspacer"></div>
+							<div class="hwall"></div>
+							<div class="hwallspacer"></div>
+							<div class="hwall"></div>
+							<div class="hwallspacer"></div>
+							<div class="hwall"></div>
+							<div class="hwallspacer"></div>
+							<div class="hwall"></div>
+						</div>
+						<div class="myrow">
+							<div></div>
+							<div class="vwall"></div>
+							<div></div>
+							<div class="vwall"></div>
+							<div></div>
+							<div class="vwall"></div>
+							<div></div>
+							<div class="vwall"></div>
+							<div></div>
+							<div class="vwall"></div>
+							<div></div>
+							<div class="vwall"></div>
+							<div></div>
+							<div class="vwall"></div>
+							<div></div>
+							<div class="vwall"></div>
+							<div></div>
+						</div>
 
-				<div class="myrow">
-					<div class="hwall"></div>
-					<div class="hwallspacer"></div>
-					<div class="hwall"></div>
-					<div class="hwallspacer"></div>
-					<div class="hwall"></div>
-					<div class="hwallspacer"></div>
-					<div class="hwall"></div>
-					<div class="hwallspacer"></div>
-					<div class="hwall"></div>
-					<div class="hwallspacer"></div>
-					<div class="hwall"></div>
-					<div class="hwallspacer"></div>
-					<div class="hwall"></div>
-					<div class="hwallspacer"></div>
-					<div class="hwall"></div>
-					<div class="hwallspacer"></div>
-					<div class="hwall"></div>
-				</div>
-				<div class="myrow">
-					<div></div>
-					<div class="vwall"></div>
-					<div></div>
-					<div class="vwall"></div>
-					<div></div>
-					<div class="vwall"></div>
-					<div></div>
-					<div class="vwall"></div>
-					<div></div>
-					<div class="vwall"></div>
-					<div></div>
-					<div class="vwall"></div>
-					<div></div>
-					<div class="vwall"></div>
-					<div></div>
-					<div class="vwall"></div>
-					<div></div>
-				</div>
+						<div class="myrow">
+							<div class="hwall"></div>
+							<div class="hwallspacer"></div>
+							<div class="hwall"></div>
+							<div class="hwallspacer"></div>
+							<div class="hwall"></div>
+							<div class="hwallspacer"></div>
+							<div class="hwall"></div>
+							<div class="hwallspacer"></div>
+							<div class="hwall"></div>
+							<div class="hwallspacer"></div>
+							<div class="hwall"></div>
+							<div class="hwallspacer"></div>
+							<div class="hwall"></div>
+							<div class="hwallspacer"></div>
+							<div class="hwall"></div>
+							<div class="hwallspacer"></div>
+							<div class="hwall"></div>
+						</div>
+						<div class="myrow">
+							<div></div>
+							<div class="vwall"></div>
+							<div></div>
+							<div class="vwall"></div>
+							<div></div>
+							<div class="vwall"></div>
+							<div></div>
+							<div class="vwall"></div>
+							<div></div>
+							<div class="vwall"></div>
+							<div></div>
+							<div class="vwall"></div>
+							<div></div>
+							<div class="vwall"></div>
+							<div></div>
+							<div class="vwall"></div>
+							<div></div>
+						</div>
 
-				<div class="myrow">
-					<div class="hwall"></div>
-					<div class="hwallspacer"></div>
-					<div class="hwall"></div>
-					<div class="hwallspacer"></div>
-					<div class="hwall"></div>
-					<div class="hwallspacer"></div>
-					<div class="hwall"></div>
-					<div class="hwallspacer"></div>
-					<div class="hwall"></div>
-					<div class="hwallspacer"></div>
-					<div class="hwall"></div>
-					<div class="hwallspacer"></div>
-					<div class="hwall"></div>
-					<div class="hwallspacer"></div>
-					<div class="hwall"></div>
-					<div class="hwallspacer"></div>
-					<div class="hwall"></div>
-				</div>
-				<div class="myrow">
-					<div></div>
-					<div class="vwall"></div>
-					<div></div>
-					<div class="vwall"></div>
-					<div></div>
-					<div class="vwall"></div>
-					<div></div>
-					<div class="vwall"></div>
-					<div></div>
-					<div class="vwall"></div>
-					<div></div>
-					<div class="vwall"></div>
-					<div></div>
-					<div class="vwall"></div>
-					<div></div>
-					<div class="vwall"></div>
-					<div></div>
-				</div>
+						<div class="myrow">
+							<div class="hwall"></div>
+							<div class="hwallspacer"></div>
+							<div class="hwall"></div>
+							<div class="hwallspacer"></div>
+							<div class="hwall"></div>
+							<div class="hwallspacer"></div>
+							<div class="hwall"></div>
+							<div class="hwallspacer"></div>
+							<div class="hwall"></div>
+							<div class="hwallspacer"></div>
+							<div class="hwall"></div>
+							<div class="hwallspacer"></div>
+							<div class="hwall"></div>
+							<div class="hwallspacer"></div>
+							<div class="hwall"></div>
+							<div class="hwallspacer"></div>
+							<div class="hwall"></div>
+						</div>
+						<div class="myrow">
+							<div></div>
+							<div class="vwall"></div>
+							<div></div>
+							<div class="vwall"></div>
+							<div></div>
+							<div class="vwall"></div>
+							<div></div>
+							<div class="vwall"></div>
+							<div></div>
+							<div class="vwall"></div>
+							<div></div>
+							<div class="vwall"></div>
+							<div></div>
+							<div class="vwall"></div>
+							<div></div>
+							<div class="vwall"></div>
+							<div></div>
+						</div>
 
-				<div class="myrow">
-					<div class="hwall"></div>
-					<div class="hwallspacer"></div>
-					<div class="hwall"></div>
-					<div class="hwallspacer"></div>
-					<div class="hwall"></div>
-					<div class="hwallspacer"></div>
-					<div class="hwall"></div>
-					<div class="hwallspacer"></div>
-					<div class="hwall"></div>
-					<div class="hwallspacer"></div>
-					<div class="hwall"></div>
-					<div class="hwallspacer"></div>
-					<div class="hwall"></div>
-					<div class="hwallspacer"></div>
-					<div class="hwall"></div>
-					<div class="hwallspacer"></div>
-					<div class="hwall"></div>
-				</div>
-				<div class="myrow">
-					<div></div>
-					<div class="vwall"></div>
-					<div></div>
-					<div class="vwall"></div>
-					<div></div>
-					<div class="vwall"></div>
-					<div></div>
-					<div class="vwall"></div>
-					<div></div>
-					<div class="vwall"></div>
-					<div></div>
-					<div class="vwall"></div>
-					<div></div>
-					<div class="vwall"></div>
-					<div></div>
-					<div class="vwall"></div>
-					<div></div>
-				</div>
-				<!-- this div is only here so the allowing drag space is whole board
-				this is a terrible terrible hack -->
-				<div class='myrow'></div>
+						<div class="myrow">
+							<div class="hwall"></div>
+							<div class="hwallspacer"></div>
+							<div class="hwall"></div>
+							<div class="hwallspacer"></div>
+							<div class="hwall"></div>
+							<div class="hwallspacer"></div>
+							<div class="hwall"></div>
+							<div class="hwallspacer"></div>
+							<div class="hwall"></div>
+							<div class="hwallspacer"></div>
+							<div class="hwall"></div>
+							<div class="hwallspacer"></div>
+							<div class="hwall"></div>
+							<div class="hwallspacer"></div>
+							<div class="hwall"></div>
+							<div class="hwallspacer"></div>
+							<div class="hwall"></div>
+						</div>
+						<div class="myrow">
+							<div></div>
+							<div class="vwall"></div>
+							<div></div>
+							<div class="vwall"></div>
+							<div></div>
+							<div class="vwall"></div>
+							<div></div>
+							<div class="vwall"></div>
+							<div></div>
+							<div class="vwall"></div>
+							<div></div>
+							<div class="vwall"></div>
+							<div></div>
+							<div class="vwall"></div>
+							<div></div>
+							<div class="vwall"></div>
+							<div></div>
+						</div>
 
+						<div class="myrow">
+							<div class="hwall"></div>
+							<div class="hwallspacer"></div>
+							<div class="hwall"></div>
+							<div class="hwallspacer"></div>
+							<div class="hwall"></div>
+							<div class="hwallspacer"></div>
+							<div class="hwall"></div>
+							<div class="hwallspacer"></div>
+							<div class="hwall"></div>
+							<div class="hwallspacer"></div>
+							<div class="hwall"></div>
+							<div class="hwallspacer"></div>
+							<div class="hwall"></div>
+							<div class="hwallspacer"></div>
+							<div class="hwall"></div>
+							<div class="hwallspacer"></div>
+							<div class="hwall"></div>
+						</div>
+						<div class="myrow">
+							<div></div>
+							<div class="vwall"></div>
+							<div></div>
+							<div class="vwall"></div>
+							<div></div>
+							<div class="vwall"></div>
+							<div></div>
+							<div class="vwall"></div>
+							<div></div>
+							<div class="vwall"></div>
+							<div></div>
+							<div class="vwall"></div>
+							<div></div>
+							<div class="vwall"></div>
+							<div></div>
+							<div class="vwall"></div>
+							<div></div>
+						</div>
+						<!-- this div is only here so the allowable drag space is whole board
+						this is a terrible terrible hack -->
+						<div class='myrow'></div>
+					</div>
+				</div>
+				<div class='span4' id='wallcontainer'>
+					<div class='row-fluid'>
+						<div class='row-fluid' style='text-align:center;'>White Walls</div>
+						<div class='row-fluid' id='WhiteWalls'>
+							<div class="vwall"></div>
+							<div class="hwallspacer"></div>
+							<div class="hwall"></div>
+						</div>
+						<div class='row-fluid' id='spacer'>Middle test</div>
+						<div class='row-fluid' id='BlackWalls'>Black Walls</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</body>
