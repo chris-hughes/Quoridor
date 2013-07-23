@@ -74,6 +74,17 @@ $(document).ready(function() {
 	// render the initial board
 	render();
 
+	// setup wallplacer button
+	$('#wallplacer').click( function() {
+		// event is triggered before class is changed
+	    if (!$(this).hasClass('active')) {
+	    	alert('active');
+	    }
+	    else {
+	    	alert('deactive');
+	    }
+  	});
+
 
 	// function to check if a piece was jumped
 	function jumped(startx,starty,newx,newy,piece){
