@@ -63,23 +63,3 @@ h1 { color: red; }
 	background-color: #aaa;
 	height: 100%;
 }
-
-#wallcontainer .row-fluid div.vwall {
-	width: 0.1em;
-	height: 2em;
-	background-color:#000000;
-	border:1px solid #000000;
-}
-
-#wallcontainer .row-fluid div.hwall {
-	height: 0.1em;
-	/*background-color:#000000;*/
-	border:1px solid #000000;
-}
-
-#wallcontainer .row-fluid div.hwallspacer {
-	width: 0.1em;
-	height: 0.1em;
-	background-color:white;
-	border:1px solid white;
-}

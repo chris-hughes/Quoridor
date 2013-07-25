@@ -76,12 +76,12 @@ $(document).ready(function() {
 
 	// setup wallplacer button
 	$('#wallplacer').click( function() {
-		// event is triggered before class is changed
+		// event is triggered before class is changed so this mihght look backwards
 	    if (!$(this).hasClass('active')) {
-	    	alert('active');
+	    	$('.open').addClass('receive');
 	    }
 	    else {
-	    	alert('deactive');
+	    	$('.open').removeClass('receive');
 	    }
   	});
 
