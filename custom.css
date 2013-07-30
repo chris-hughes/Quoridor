@@ -5,10 +5,7 @@ body {
 
 h1 { color: red; }
 
-/*.wall { background-color: lightblue; }
 
-.grid { background-color: lightyellow; }
-*/
 .board{
 	/*padding-left: 260px;*/
 	font-size:150%;
@@ -38,10 +35,18 @@ h1 { color: red; }
 	border:1px solid #000000;
 }
 
+.myrow div.vwall.placed {
+	background-color:#000000;
+}
+
 .myrow div.hwall {
 	height: 0.1em;
 	/*background-color:#000000;*/
 	border:1px solid #000000;
+}
+
+.myrow div.hwall.placed {
+	background-color:#000000;
 }
 
 .receive:hover {

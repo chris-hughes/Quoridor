@@ -75,7 +75,7 @@ $(document).ready(function() {
 	render();
 
 	// setup wallplacer button
-	$('#wallplacer').click( function() {
+	$('#wallplacer').click(function() {
 		if (gameOver==0){
 			// event is triggered before class is changed so this mihght look backwards
 		    if (!$(this).hasClass('active')) {
@@ -89,6 +89,31 @@ $(document).ready(function() {
 		}
   	});
 
+  	// placing a wall
+  	$('.open').click(function(){
+  		if ($('#wallplacer').hasClass('active')){
+  			console.log(this);
+	  		$(this).removeClass('open receive').addClass('placed');
+	  		console.log(this);
+	  		turn++;
+			$('#log').text(" ");
+			if (turn % 2===0){
+				$('#log').text("White's Turn");
+				$('#turn_icon').css('color','white').text("White's Turn");
+			} else {
+				$('#log').text("Black's Turn");
+				$('#turn_icon').css('color','black').text("Black's Turn");
+			}
+
+			$('#wallplacer').button('toggle');
+			$('.open').removeClass('receive');
+			render();
+  		}
+  		else {
+  			console.log('no no no');
+  		}
+
+  	});
 
 	// function to check if a piece was jumped
 	function jumped(startx,starty,newx,newy,piece){
