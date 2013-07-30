@@ -44,6 +44,10 @@ h1 { color: red; }
 	border:1px solid #000000;
 }
 
+.receive:hover {
+	background-color:#000000;
+}
+
 .myrow div.hwallspacer {
 	width: 0.1em;
 	height: 0.1em;

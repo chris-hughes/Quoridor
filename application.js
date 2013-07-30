@@ -76,13 +76,17 @@ $(document).ready(function() {
 
 	// setup wallplacer button
 	$('#wallplacer').click( function() {
-		// event is triggered before class is changed so this mihght look backwards
-	    if (!$(this).hasClass('active')) {
-	    	$('.open').addClass('receive');
-	    }
-	    else {
-	    	$('.open').removeClass('receive');
-	    }
+		if (gameOver==0){
+			// event is triggered before class is changed so this mihght look backwards
+		    if (!$(this).hasClass('active')) {
+		    	$('.open').addClass('receive');
+		    	$('.piece').draggable('disable');
+		    }
+		    else {
+		    	$('.open').removeClass('receive');
+		    	$('.piece').draggable('enable');
+		    }
+		}
   	});
 
 
