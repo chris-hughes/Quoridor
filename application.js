@@ -31,8 +31,9 @@ $(document).ready(function() {
 	var whiteWalls=7;
 	var blackWalls=7;
 
-	// initialise grid for pathfinder
-	var grid = new PF.Grid(16,16);
+	// initialise grid for pathfinder and finder method
+	var grid = new PF.Grid(17,17);
+	var finder = new PF.AStarFinder();
 
 	function draw(x,y,colour){
 		if (colour==='white') {
@@ -104,7 +105,31 @@ $(document).ready(function() {
   		if ($(this).hasClass('placed')) {
   			return;
   		}
+  		// check if they are blocking off any player from endzone
   		else {
+
+  			var args = [$(this).data('coords').row,$(this).data('coords').col];  			
+  			var gridBackup = grid.clone();
+
+  			var pathFound=0;
+  			var minPath=9999;
+  			for (i=0;i<17;i+=2) {
+  	 			// x and y are swapped for the pathfinder.js
+  				gridBackup.setWalkableAt(args[1],args[0],false);
+  				var path = finder.findPath(pieces[0].y,pieces[0].x,i,0,gridBackup);
+  				// have to reset the grid after every path finder
+  				gridBackup = grid.clone();
+  				pathFound = (path.length>0)*1;
+  				minPath = Math.min(minPath,path.length);
+  			}
+  			console.log(minPath);
+
+  			if (pathFound==0){
+  				$('#log').text("Cannot block white in");
+  				return;
+  			}
+
+
   			if ((turn % 2===0 && whiteWalls>0)||(turn % 2===1 && blackWalls>0)){
 		  		if ($('#wallplacer').hasClass('active')){
 			  		$(this).removeClass('open receive').addClass('placed');
@@ -113,6 +138,9 @@ $(document).ready(function() {
 					} else {
 						blackWalls--;
 					}
+					console.log(args);
+					grid.setWalkableAt(args[1],args[0],false);
+					// console.log(grid);
 			  		turn++;
 					$('#log').text(" ");
 					if (turn % 2===0){
