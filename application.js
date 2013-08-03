@@ -31,6 +31,9 @@ $(document).ready(function() {
 	var whiteWalls=7;
 	var blackWalls=7;
 
+	// initialise grid for pathfinder
+	var grid = new PF.Grid(16,16);
+
 	function draw(x,y,colour){
 		if (colour==='white') {
 			at(x,y).html("<span class='piece'>&#9817;</span>");
