@@ -27,6 +27,10 @@ $(document).ready(function() {
 	// create array of pieces
 	var pieces = [white,black];
 
+	// initial number of walls
+	var whiteWalls=7;
+	var blackWalls=7;
+
 	function draw(x,y,colour){
 		if (colour==='white') {
 			at(x,y).html("<span class='piece'>&#9817;</span>");
@@ -38,6 +42,8 @@ $(document).ready(function() {
 
 	var render = function(){
 		clear();
+		$('#whiteWalls').text(whiteWalls);
+		$('#blackWalls').text(blackWalls);
 
 		for (i=0;i<pieces.length;i++){
 			draw(pieces[i].x ,pieces[i].y, pieces[i].colour);
@@ -89,30 +95,40 @@ $(document).ready(function() {
 		}
   	});
 
-  	// placing a wall
+  	// placing a wall (can only happen if wallplacer button is active)
   	$('.open').click(function(){
-  		if ($('#wallplacer').hasClass('active')){
-  			console.log(this);
-	  		$(this).removeClass('open receive').addClass('placed');
-	  		console.log(this);
-	  		turn++;
-			$('#log').text(" ");
-			if (turn % 2===0){
-				$('#log').text("White's Turn");
-				$('#turn_icon').css('color','white').text("White's Turn");
-			} else {
-				$('#log').text("Black's Turn");
-				$('#turn_icon').css('color','black').text("Black's Turn");
-			}
-
-			$('#wallplacer').button('toggle');
-			$('.open').removeClass('receive');
-			render();
+  		// stop people placing walls where they are already placed
+  		if ($(this).hasClass('placed')) {
+  			return;
   		}
   		else {
-  			console.log('no no no');
-  		}
+  			if ((turn % 2===0 && whiteWalls>0)||(turn % 2===1 && blackWalls>0)){
+		  		if ($('#wallplacer').hasClass('active')){
+			  		$(this).removeClass('open receive').addClass('placed');
+			  		if (turn % 2===0){
+						whiteWalls--;
+					} else {
+						blackWalls--;
+					}
+			  		turn++;
+					$('#log').text(" ");
+					if (turn % 2===0){
+						$('#log').text("White's Turn");
+						$('#turn_icon').css('color','white').text("White's Turn");
+					} else {
+						$('#log').text("Black's Turn");
+						$('#turn_icon').css('color','black').text("Black's Turn");
+					}
 
+					$('#wallplacer').button('toggle');
+					$('.open').removeClass('receive');
+					render();
+		  		}
+		  	}
+		  	else {
+				$('#log').text("Not enough walls");
+			}
+  		}
   	});
 
 	// function to check if a piece was jumped
